@@ -31,3 +31,19 @@ const readData = await prisma.employee.findMany({
         });
 ```
 ---
+
+### NOT Operation
+![](.png)
+
+`Two conditions must be false to return the data. If any of the conditions is true, the data will not be returned.`
+```bash
+const readData = await prisma.employee.findMany({
+            where: {
+                NOT: [
+                    { name: { contains: "Sayeed"} },
+                    { salary: { gt: 35000 } },
+                ]
+            }
+        });
+```
+---
