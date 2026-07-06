@@ -15,3 +15,19 @@ const readData = await prisma.employee.findMany({
         });
 ```
 ---
+
+### OR Operation
+![](https://imgur.com/irKfbZi.png)
+
+`One conditions must be true to get the data.`
+```bash
+const readData = await prisma.employee.findMany({
+            where: {
+                OR: [
+                    { name: { contains: "Wasim"} },
+                    { salary: { gte: 35000 } },
+                ]
+            }
+        });
+```
+---
